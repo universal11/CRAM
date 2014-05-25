@@ -125,8 +125,10 @@ int main(int argc, const char * argv[]){
     
     if(optionMap.count("bind")){
         clientAddress = optionMap["bind"].as<std::string>();
-        std::cout << "Bound to: " << clientAddress << std::endl;
     }
+    
+    if(clientAddress.empty()){ clientAddress = "0.0.0.0"; }
+    std::cout << "Bound to: " << clientAddress << std::endl;
     
     if(optionMap.count("queue")){
         queuePath = optionMap["queue"].as<std::string>();
